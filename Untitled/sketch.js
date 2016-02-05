@@ -3,19 +3,36 @@ function setup() {
 }
 
 function draw() {
-  background('blue');
+  background(50);
+  main();
+  ninjas();
 }
 
-function Follow(x,y) {
-  var dotX = x;
-  var dotY = y;
+//function Dots() { 
   
-  this.renderDot() = function(){ //what the dot looks like
+  var main = function() { 
     fill('yellow');
-    ellipse(dotX,dotY,50,50);
+    ellipse(mouseX,mouseY,50,50);
   }
   
-  this.followMouse() = function(){
+  var ninjas = function(x,ninjaY) {
+    var x = random(0,500);
+    var ninjaY= 0; //starting ninja position
+    var fr = 30; //frame rate for ninja 
+    fill('black');
+    ellipse(x,ninjaY,50,50);
+    
+    ninjaY = ninjaY + 1; //ninja falls
+    
+    if(ninjaY >= height) {
+      fr = 30;
+      frameRate(fr); 
+    }
+    else {
+      ninjaY = 0;
+    }
     
   }
-}
+  
+ 
+//}
