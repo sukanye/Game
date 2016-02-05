@@ -17,14 +17,14 @@ function draw() {
   
   var ninjas = function(x,ninjaY) {
     var x = random(0,500);
-    var ninjaY= 0; //starting ninja position
-    var fr = 30; //frame rate for ninja 
+    var ninjaY= random(0,500); //starting ninja position
+    var fr = 5; //frame rate for ninja 
     fill('black');
     ellipse(x,ninjaY,50,50);
     
     ninjaY = ninjaY + 1; //ninja falls
     
-    if(ninjaY >= height) {
+    if(ninjaY <= height) {
       fr = 30;
       frameRate(fr); 
     }
@@ -33,6 +33,3 @@ function draw() {
     }
     
   }
-  
- 
-//}
