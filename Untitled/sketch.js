@@ -12,24 +12,22 @@ function draw() {
   
   var main = function() { 
     fill('yellow');
+    noStroke();
     ellipse(mouseX,mouseY,50,50);
   }
   
-  var ninjas = function(x,ninjaY) {
-    var x = random(0,500);
-    var ninjaY= random(0,500); //starting ninja position
-    var fr = 5; //frame rate for ninja 
+  var ninjas = function() {
+    this.ninjaX = random(0,500);
+    this.ninjaY= random(0,500); //starting ninja position
+    
     fill('black');
-    ellipse(x,ninjaY,50,50);
-    
-    ninjaY = ninjaY + 1; //ninja falls
-    
-    if(ninjaY <= height) {
-      fr = 30;
-      frameRate(fr); 
-    }
-    else {
-      ninjaY = 0;
-    }
-    
+    ellipse(ninjaX,ninjaY,50,50);
+  
   }
+  
+  //var collide = function() {
+  //  if()
+  //}
+  
+ 
+//}
