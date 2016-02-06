@@ -27,7 +27,14 @@ var ninjasArray = [];
       ellipse(this.ninjaX,this.ninjaY,50,50);
     }
     this.updateNinja = function() {
-      
+      if(this.ninjaY <= height){
+        this.ninjaY++;
+      }
+      else if(this.ninjaY = height) {
+        this.ninjaY = 0;
+        this.ninjaX = random(0,width);
+        
+      }
     }
   }
   
@@ -45,14 +52,22 @@ var ninjasArray = [];
 
   var makeNinjas = true;
   var draw = function() {
-  // background(50);
+  background(50);
   main();
   
-  for (var i = 0; i < 2; i++) {
-    ninjasArray.push(new Ninja('black',random(0,width),0));
-    ninjasArray[i].renderNinja();
-
+  if (makeNinjas) {
+    for (var i = 0; i < 5; i++) {
+      ninjasArray.push(new Ninja('black',random(0,width),0));
+      ninjasArray[i].renderNinja();
+      print(ninjasArray.length)
+    }
   }
+  
+  for (var j = 0; j < ninjasArray.length; j++) {
+    ninjasArray[j].updateNinja();
+    ninjasArray[j].renderNinja();
+  }
+  
   
   makeNinjas = false
   
