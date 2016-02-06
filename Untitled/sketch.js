@@ -18,22 +18,22 @@ var ninjasArray = [];
     mainMovement();
   }
   
-  var Ninja = function(ninjaColor, x, y) {
+  var Ninja = function(ninjaColor, x, y, speed) {
     this.ninjaX = x;
     this.ninjaY = y;
-    
+    this.ninjaSpeed = speed;
     this.renderNinja = function() {
       fill(ninjaColor);
-      ellipse(this.ninjaX,this.ninjaY,50,50);
+      ellipse(this.ninjaX,this.ninjaY,30,30);
     }
-    this.updateNinja = function() {
+    
+    this.rainNinja = function() {
       if(this.ninjaY <= height){
-        this.ninjaY++;
+        this.ninjaY+= this.ninjaSpeed;
       }
       else if(this.ninjaY = height) {
         this.ninjaY = 0;
         this.ninjaX = random(0,width);
-        
       }
     }
   }
@@ -47,7 +47,6 @@ var ninjasArray = [];
   
   var setup = function() {
   createCanvas(500,500);
-  //blackNinja.renderNinja();
 }
 
   var makeNinjas = true;
@@ -56,26 +55,19 @@ var ninjasArray = [];
   main();
   
   if (makeNinjas) {
-    for (var i = 0; i < 5; i++) {
-      ninjasArray.push(new Ninja('black',random(0,width),0));
+    for (var i = 0; i < 40; i++) {
+      ninjasArray.push(new Ninja('black',random(0,width),0, .5*i));
       ninjasArray[i].renderNinja();
       print(ninjasArray.length)
     }
   }
   
   for (var j = 0; j < ninjasArray.length; j++) {
-    ninjasArray[j].updateNinja();
+    ninjasArray[j].rainNinja();
     ninjasArray[j].renderNinja();
   }
-  
-  
-  makeNinjas = false
-  
-  
 
-  
- // blackNinja.renderNinja(); //calling black ninja
-  //redNinja.renderNinja();
+  makeNinjas = false;
 }
 
   
